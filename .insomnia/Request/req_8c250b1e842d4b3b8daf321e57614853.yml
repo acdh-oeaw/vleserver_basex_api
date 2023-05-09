@@ -1,10 +1,11 @@
-_id: req_3653d0ef199a476ca019366252aea627
+_id: req_8c250b1e842d4b3b8daf321e57614853
 type: Request
-parentId: fld_317aaa36f940471a9309f1b779d41d4d
-modified: 1683637887559
-created: 1683637887559
-url: "{{ _.base_url }}/dicts/{{ _.dict_name }}/entries/{{ _.entries_id }}/changes"
-name: /dicts/{dict_name}/entries/{entries_id}/changes
+parentId: fld_1e24e4f08d99445285d76c0b8a78b065
+modified: 1683647256155
+created: 1683647256155
+url: "{{ _.base_url }}/dicts/{{ _.dict_name }}/entries/{{ _.entries_id
+  }}/changes/{{ _.changes_timestamp }}"
+name: /dicts/{dict_name}/entries/{entries_id}/changes/{changes_timestamp}
 description: ""
 method: GET
 body: {}
@@ -14,7 +15,7 @@ authentication:
   type: basic
   username: "{{ _.httpUsername }}"
   password: "{{ _.httpPassword }}"
-metaSortKey: -1683637887559
+metaSortKey: -1683647256155
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

@@ -1,16 +1,16 @@
-_id: env_f3fbcdb1994446e98e9f4c05660133bd
+_id: env_be2c7052976d49ce960eb728b5e549f2
 type: Environment
 parentId: env_ce1cc6e9f591c171c0659729ee15730fc58123f6
-modified: 1683644826357
-created: 1683625220214
-name: Local development server
+modified: 1683647684974
+created: 1683647648447
+name: Zettelkasten
 data:
-  base_url: http://localhost:8984/restvle
+  base_url: https://basex-dboe.hephaistos.arz.oeaw.ac.at/restvle
   dict_name: _qdb-TEI-02
   entries_id: s728_qdb-d1e88741
   accept: application/vnd.wde.v2+json
-  httpUsername: admin
-  httpPassword: TestMeHard
+  httpUsername: osiam
+  httpPassword: ""
 dataPropertyOrder:
   "&":
     - base_url
@@ -21,4 +21,4 @@ dataPropertyOrder:
     - httpPassword
 color: null
 isPrivate: false
-metaSortKey: 1683625220214
+metaSortKey: 1683625220264

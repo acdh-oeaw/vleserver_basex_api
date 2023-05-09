@@ -1,18 +1,15 @@
-_id: req_aee9449877e247a6a2e1a89d036ff86c
+_id: req_a54d62f966974d51a936ffdc88b2120a
 type: Request
-parentId: fld_e05545a8ca354ad9bc49b73d7c0649f9
-modified: 1683638047619
-created: 1683637887666
-url: "{{ _.base_url }}/dicts/dict_users/users"
-name: List users.
+parentId: fld_75e700bc925c45539f066d9a17065423
+modified: 1683647256223
+created: 1683647256223
+url: "{{ _.base_url }}/dicts/{{ _.dict_name }}/entries/{{ _.entries_id }}"
+name: /dicts/{dict_name}/entries/{entries_id}
 description: ""
 method: GET
 body: {}
 parameters:
-  - name: page
-    disabled: true
-    value: string
-  - name: pageSize
+  - name: lock
     disabled: true
     value: string
 headers: []
@@ -20,8 +17,7 @@ authentication:
   type: basic
   username: "{{ _.httpUsername }}"
   password: "{{ _.httpPassword }}"
-  disabled: true
-metaSortKey: -1683637887666
+metaSortKey: -1683647256223
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

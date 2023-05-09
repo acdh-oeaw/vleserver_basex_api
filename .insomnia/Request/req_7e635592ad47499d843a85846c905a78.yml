@@ -1,0 +1,44 @@
+_id: req_7e635592ad47499d843a85846c905a78
+type: Request
+parentId: fld_75e700bc925c45539f066d9a17065423
+modified: 1683650136643
+created: 1683647256231
+url: "{{ _.base_url }}/dicts/{{ _.dict_name }}/entries/{{ _.entries_id }}"
+name: Change a dictionary entry.
+description: ""
+method: PUT
+body:
+  mimeType: application/json
+  text: >-
+    {
+    	"sid": "s728_qdb-d1e88741",
+    	"lemma": "",
+    	"entry": "<entry xmlns=\"http:\/\/www.tei-c.org\/ns\/1.0\" xml:id=\"s728_qdb-d1e88741\" n=\"1783665\" source=\"#orig-s728_qdb-d1e88741\"><form type=\"hauptlemma\" xml:id=\"tu-278357.50\"><orth>(Ge)schoß<\/orth><\/form><gramGrp><pos>Subst<\/pos><\/gramGrp><form type=\"lautung\" n=\"1\" xml:id=\"tu-278357.53\"><pron xml:lang=\"bar\" notation=\"teuthonista\">\"(Ge)schoßlein\"<\/pron><gramGrp><gram> [D]<\/gram><\/gramGrp><\/form><sense corresp=\"this:LT1\" xml:id=\"tu-278357.54\"><def xml:lang=\"de\">ausgelassenes Mädchen<\/def><\/sense><xr type=\"verweise\" resp=\"B\" xml:id=\"tu-278357.55\"><pRef>(Ge)schßel<\/pRef><\/xr><ref type=\"archiv\" xml:id=\"tu-278357.49\">HK 728, s7280405.fue#77<\/ref><ref type=\"quelle\" xml:id=\"tu-278357.51\">Bearbeiter <certainty assertedValue=\"unknown\" locus=\"value\"\/><\/ref><\/entry>",
+    	"storedEntryMd5": "A6123C38D476D9D4B80738BA890F1198"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    disabled: false
+    value: application/json
+    id: pair_591b2144241f494eabf99619a996e169
+  - name: Accept
+    disabled: false
+    value: "{{ _.accept }}"
+    id: pair_b692c70c748f4461968c77df6857cf54
+  - name: Authorization
+    disabled: true
+    value: string
+    id: pair_f1e4802850534658847f5c926542e7cf
+authentication:
+  type: basic
+  username: "{{ _.httpUsername }}"
+  password: "{{ _.httpPassword }}"
+metaSortKey: -1683647256231
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

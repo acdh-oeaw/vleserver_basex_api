@@ -1,10 +1,10 @@
-_id: req_5f21367a9f914c6890dd79fd4328b06d
+_id: req_f515554137a647ef9e073ef241b5d50f
 type: Request
-parentId: fld_0842c8f8f8844844b29ba4bdfcca3997
-modified: 1683637887640
-created: 1683637887640
-url: "{{ _.base_url }}/dicts/{{ _.dict_name }}/entries/{{ _.entries_id }}"
-name: /dicts/{dict_name}/entries/{entries_id}
+parentId: fld_bb6ad27f1ecd4ad59059e57b560944ef
+modified: 1683647256193
+created: 1683647256193
+url: "{{ _.base_url }}/dicts/{{ _.dict_name }}"
+name: /dicts/{dict_name}
 description: ""
 method: DELETE
 body: {}
@@ -14,7 +14,7 @@ authentication:
   type: basic
   username: "{{ _.httpUsername }}"
   password: "{{ _.httpPassword }}"
-metaSortKey: -1683637887640
+metaSortKey: -1683647256193
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

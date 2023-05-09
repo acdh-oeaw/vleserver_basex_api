@@ -1,14 +1,18 @@
-_id: req_3bcc703b1d8f4d21917297bccc9ad8ba
+_id: req_f11109b444244f55ae1d24426f4c9c89
 type: Request
-parentId: fld_e05545a8ca354ad9bc49b73d7c0649f9
-modified: 1683638038643
-created: 1683637887656
-url: "{{ _.base_url }}/dicts/dict_users/users"
-name: Create a user.
+parentId: fld_bb6ad27f1ecd4ad59059e57b560944ef
+modified: 1683647256178
+created: 1683647256178
+url: "{{ _.base_url }}/dicts"
+name: Create a new dictionary.
 description: ""
 method: POST
 body:
-  mimeType: application/xml
+  mimeType: application/json
+  text: |-
+    {
+      "name": "Name of the dictionary."
+    }
 parameters: []
 headers:
   - name: Content-Type
@@ -21,8 +25,7 @@ authentication:
   type: basic
   username: "{{ _.httpUsername }}"
   password: "{{ _.httpPassword }}"
-  disabled: true
-metaSortKey: -1683637887656
+metaSortKey: -1683647256178
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

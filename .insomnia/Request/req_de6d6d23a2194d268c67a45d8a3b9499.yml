@@ -1,0 +1,41 @@
+_id: req_de6d6d23a2194d268c67a45d8a3b9499
+type: Request
+parentId: fld_6b09e975cacf4e129a04bbb48025952e
+modified: 1683647256253
+created: 1683647256253
+url: "{{ _.base_url }}/dicts/dict_users/users"
+name: Create a user.
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: >-
+    {
+      "id": "The internal ID. When creating a new user this will be filled in automatically.",
+      "pw": "The password for that user and that table.",
+      "userID": "The username the user uses to log in",
+      "read": "Whether the user has read access.",
+      "write": "Whether the user has write access.",
+      "writeown": "Whether the user may change entries that don't belong to her.",
+      "table": "A table name. Will only be returned on administrative queries on the special dict_users storage."
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    disabled: true
+    value: string
+  - name: Accept
+    disabled: true
+    value: string
+authentication:
+  type: basic
+  username: "{{ _.httpUsername }}"
+  password: "{{ _.httpPassword }}"
+metaSortKey: -1683647256253
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

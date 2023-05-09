@@ -1,9 +1,9 @@
 _id: spc_595e0640e91147229c6cd8bc9afe86fe
 type: ApiSpec
 parentId: wrk_52ee7131a91b4bd3b92d81960c20c046
-modified: 1683638115219
+modified: 1683646804388
 created: 1683622804850
-fileName: openapi.yaml
+fileName: editing dictionary like XML datasets
 contents: >-
   openapi: 3.0.1
 
@@ -19,7 +19,7 @@ contents: >-
       name: MIT
       url: http://www.opensource.org/licenses/MIT
     termsOfService: https://vle-curation.acdh.oeaw.ac.at/static/terms-of-use.html
-    version: 0.4.0
+    version: 2.0.0
     title: API Problem and JSON HAL based API for editing dictionary like XML datasets
     description: API Problem and JSON HAL based API for editing dictionary like XML datasets. Accept application/json can be used for unauthenticated access.
   servers:
@@ -225,22 +225,45 @@ contents: >-
         description: Please note that a client sending Accept application/vnd.wde.v2+json is required to provide credentials. Use application/json or application/hal+json for unrestricted read access.
       post:
         operationId: postDicts
+        parameters:
+          - schema:
+              x-xml-type: xs:string
+              type: string
+            in: header
+            name: Content-Type
+            description: Required to be application/json else returns 415.
+            required: false
+          - schema:
+              x-xml-type: xs:string
+              type: string
+            in: header
+            name: Accept
+            description: Required to be application/vnd.wde.v2+json else returns 403.
+            required: false
         tags:
         - dicts
-        description: "Create a new dictionary. Can create an empty user rights storage\
+        summary: Create a new dictionary.
+        description: "Can create an empty user rights storage\
           \ by using the special name \"dict_users\".\r\nIn order to create a dictionary\
           \ you need to be an admin user at least for that dictionary. See users.\r\n\
           If the data base is empty any user may create \"dict_users\"."
         requestBody:
           content:
-            '*/*':
+            'application/json':
               schema:
                 $ref: '#/components/schemas/dicts'
           required: true
         responses:
           "201":
             description: Created
-            content: {}
+            content:
+              application/problem+json:
+                schema:
+                  $ref: "#/components/schemas/problem_json_201"
+              application/problem+xml:
+                schema:
+                  x-xml-type: item()
+                  type: string
           "400":
             description: Client Error
             content: {}
@@ -585,56 +608,73 @@ contents: >-
             content: {}
       put:
         operationId: putEntryById
-        tags:
-        - entries
-        description: Recreate the whole entry.
+        summary: Change a dictionary entry.
         parameters:
-        - name: dict_name
-          in: path
-          description: Name of an existing dictionary or dict_users.
-          required: true
-          schema:
-            type: string
-        - name: entries_id
-          in: path
-          description: URL parameter entries_id
-          required: true
-          schema:
-            maximum: 1
-            minimum: 0
-            type: string
+          - name: dict_name
+            in: path
+            description: Name of an existing dictionary or dict_users.
+            required: true
+            schema:
+              type: string
+          - name: entries_id
+            in: path
+            description: URL parameter entries_id
+            required: true
+            schema:
+              maximum: 1
+              minimum: 1
+              type: string
+          - schema:
+              x-xml-type: xs:string
+              type: string
+            in: header
+            name: Content-Type
+            description: Required to be application/json else returns 415.
+            required: false
+          - schema:
+              x-xml-type: xs:string
+              type: string
+            in: header
+            name: Accept
+            description: Required to be application/vnd.wde.v2+json else returns 403.
+            required: false
+          - schema:
+              x-xml-type: xs:string
+              type: string
+            in: header
+            name: Authorization
+            description: Required for getting the user for the changelog.
+            required: false
         requestBody:
           content:
-            '*/*':
+            application/json:
               schema:
                 $ref: '#/components/schemas/entries'
+          description: 'JSON describing the changed entry. Processed as variable: $userData'
           required: true
         responses:
-          "200":
-            description: OK
-            content: {}
-          "400":
-            description: Client Error
-            content: {}
-          "401":
-            description: Unauthorized
-            content: {}
-          "403":
-            description: Forbidden
-            content: {}
-          "404":
-            description: Not Found
-            content: {}
-          "406":
-            description: Not Acceptable
-            content: {}
-          "415":
-            description: Unsupported Media Type
-            content: {}
-          "422":
-            description: Unprocessable Entity
-            content: {}
-        x-codegen-request-body-name: body
+          '200':
+            content:
+              application/vnd.wde.v2+json:
+                schema:
+                  $ref: '#/components/schemas/entries'
+              application/problem+xml:
+                schema:
+                  x-xml-type: item()
+                  type: string
+              application/problem+json:
+                schema:
+                  x-xml-type: item()
+                  type: string
+            description: >-
+              The changed entry. Including the changelog entry the server
+              generated.
+        tags:
+          - entries
+        description: >-
+          The entry is saved in the changelog db before it is changed . The
+          authorized user has to own the lock to do this. Otherwise a 422 error is
+          returned.
       delete:
         operationId: deleteEntryById
         tags:
@@ -744,12 +784,10 @@ contents: >-
             required: false
         requestBody:
           content:
-            application/xml:
+            application/json:
               schema:
-                nullable: true
-                x-xml-type: item()
-                type: string
-              example: |-
+                $ref: "#/components/schemas/users"
+              example: 
                 {
                   "id": "The internal ID. When creating a new user this will be filled in automatically.",
                   "userID": "The user id or username.",
@@ -944,14 +982,14 @@ contents: >-
             description: The entry in the dictionary. A TEI XML snippet (or a whole
               document).
         example:
-          id: Optional for creating special entries below id 700.
-          sid: A string id. Ought to be unique. Should not contain any Unicode characters.
-          lemma: The lemma of the entry. Probably contains Unicode characters.
-          status: Status of the entry. E. g. released.
-          locked: The user that currently edits the entry.
-          type: Type of the entry. For quickly limiting searches. E. g. lemma, example,
-            multi_word_unit.
-          entry: The entry in the dictionary. A TEI XML snippet (or a whole document).
+          {
+            "sid": "The internal ID. May be empty string.",
+            "lemma": "A lemma. May be empty string.",
+            "entry": "The entry as XML fragment.",
+            "storedEntryMd5": "Optional: the last known checksum for the entry in the DB.",
+            "owner": "Optional: set (or clear) the owner of an entry. TODO: enforce only write own",
+            "status": "Optional: set (or clear) a status string. 'released' was used with some special meaning in the past"
+          }
       users:
         required:
         - id
@@ -994,4 +1032,25 @@ contents: >-
           writeown: Whether the user may change entries that don't belong to her.
           table: A table name. Will only be returned on administrative queries on the
             special dict_users storage.
+      problem_json_201:
+        required:
+         - type
+         - title
+         - status
+        properties:
+          type:
+            type: string
+            description: "https:\/\/tools.ietf.org\/html\/rfc7231#section-6"
+          title:
+            type: string
+            description: "Created"
+          status:
+            type: string
+            description: "201"
+        example:
+         {
+          "type": "https:\/\/tools.ietf.org\/html\/rfc7231#section-6",
+          "title": "Created",
+          "status": "201"
+         }
 contentType: yaml

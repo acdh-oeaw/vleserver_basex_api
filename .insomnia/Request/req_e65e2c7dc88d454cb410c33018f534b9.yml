@@ -1,26 +1,23 @@
-_id: req_b9d4ecc1a35f460fa9442b653f730b10
+_id: req_e65e2c7dc88d454cb410c33018f534b9
 type: Request
-parentId: fld_a1bba2d743e04963a088f62eaf0c0995
-modified: 1683637887579
-created: 1683637887579
-url: "{{ _.base_url }}/dicts"
-name: A list of all dictionaries available on this server.
+parentId: fld_6b09e975cacf4e129a04bbb48025952e
+modified: 1683647256274
+created: 1683647256274
+url: "{{ _.base_url }}/dicts/dict_users/users/{{ _.userName_or_id }}"
+name: Get user data.
 description: ""
 method: GET
 body: {}
-parameters:
-  - name: page
+parameters: []
+headers:
+  - name: Accept
     disabled: true
     value: string
-  - name: pageSize
-    disabled: true
-    value: string
-headers: []
 authentication:
   type: basic
   username: "{{ _.httpUsername }}"
   password: "{{ _.httpPassword }}"
-metaSortKey: -1683637887579
+metaSortKey: -1683647256274
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
