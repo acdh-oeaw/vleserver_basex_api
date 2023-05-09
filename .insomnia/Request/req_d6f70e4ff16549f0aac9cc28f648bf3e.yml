@@ -1,0 +1,21 @@
+_id: req_d6f70e4ff16549f0aac9cc28f648bf3e
+type: Request
+parentId: fld_bddd9866c9034364b7ca5bdb6cf3ec11
+modified: 1683625177095
+created: 1683625177095
+url: "{{ _.base_url }}/dicts"
+name: /dicts
+description: ""
+method: POST
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1683625177095
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

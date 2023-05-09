@@ -1,0 +1,14 @@
+_id: env_f3fbcdb1994446e98e9f4c05660133bd
+type: Environment
+parentId: env_ce1cc6e9f591c171c0659729ee15730fc58123f6
+modified: 1683625439992
+created: 1683625220214
+name: Local development server
+data:
+  base_url: http://localhost:8984/restvle
+dataPropertyOrder:
+  "&":
+    - base_url
+color: null
+isPrivate: false
+metaSortKey: 1683625220214

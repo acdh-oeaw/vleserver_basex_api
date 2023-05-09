@@ -1,0 +1,22 @@
+_id: req_2d70df5779e24d3d95d2b3d15a846b1f
+type: Request
+parentId: fld_5bd1a11496bf4810bdd30f26bd7900a2
+modified: 1683625177136
+created: 1683625177136
+url: "{{ _.base_url }}/dicts/{{ _.dict_name }}/entries/{{ _.entries_id
+  }}/entries_ndx/{{ _.entries_ndx_id }}"
+name: /dicts/{dict_name}/entries/{entries_id}/entries_ndx/{entries_ndx_id}
+description: ""
+method: POST
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1683625177136
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
