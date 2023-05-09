@@ -1,20 +1,27 @@
 _id: spc_595e0640e91147229c6cd8bc9afe86fe
 type: ApiSpec
 parentId: wrk_52ee7131a91b4bd3b92d81960c20c046
-modified: 1683625142887
+modified: 1683626426300
 created: 1683622804850
 fileName: openapi.yaml
-contents: >
+contents: >-
   openapi: 3.0.1
 
+  security:
+    - httpBasicWithSHA256Pws: []
   info:
-    title: VLE Server Dictionary REST API
-    description: A HAL based API for working with TEI dictionaries
-    version: "2"
     contact:
-      name: ACDH-CH ÖAW
-      url: https://www.oeaw.ac.at/acdh
-      email: acdh-ch-tech@oeaw.ac.at
+      name: Omar Siam
+      url: https://www.oeaw.ac.at/acdh/tools/vle/
+      email: Omar.Siam@acdh.oeaw.ac.at
+    license:
+      x-name-is-spdx: true
+      name: MIT
+      url: http://www.opensource.org/licenses/MIT
+    termsOfService: https://vle-curation.acdh.oeaw.ac.at/static/terms-of-use.html
+    version: 0.4.0
+    title: API Problem and JSON HAL based API for editing dictionary like XML datasets
+    description: API Problem and JSON HAL based API for editing dictionary like XML datasets. Accept application/json can be used for unauthenticated access.
   servers:
 
   - url: http://localhost:8984/restvle
@@ -24,27 +31,32 @@ contents: >
   - url: https://basex-dboe.hephaistos.arz.oeaw.ac.at/restvle
     description: DBÖ Zetteldaten
   tags:
-
-  - name: changes
-    description: Access to the change log entries stored for a particular entry in the
-      dictionaries.
-  - name: dicts
-    description: Query and manipulate dictionaries and the users table.
-  - name: entries_ndx
-    description: Access and update the XPaths that are used when limiting the data returned
-      on an entries GET using the ndx parameter.
-  - name: entries
-    description: Create and manipulate entries in a given dictionary.
-  - name: users
-    description: "Manipulate the users and user rights for a dictionary. Can also be\
-      \ used by global admin users to manipulate users for any table when used with\
-      \ \"dict_users\".\r\nDefinitions:\r\n<ul>\r\n<li>A standard user is a user that\
-      \ is authorized to read and write her own entries in a dictionary.</li>\r\n<li>An\
-      \ admin user is a user that is authorized to read and write any entry in a partictular\
-      \ dictionary (writeown = 'n')</li>\r\n<li>A global admin user is a user that is\
-      \ authorized to read and write any entry in \"dict_users\". Global admin users\
-      \ are authorized to manipulate users for any dictionary also through a url referriung\
-      \ to that dictionary.</li>\r\n</ul>"
+    - name: _
+      description: API Problem and JSON HAL based API for editing dictionary like XML datasets.
+    - name: dicts
+      description: Query and manipulate dictionaries and the special users "dictionary". See dict.xqm.
+    - name: entries
+      description: Query and manipulate entries in the dictionary. See entries.xqm
+    - name: public
+      description: The public part of the API. No authentication and world-readable unless the dictionary is restriced or Accept is application/vnd.wde.v2+json
+    - name: internal
+      description: Override the default behavior.
+    - name: changes
+      description: Access to the change log entries stored for a particular entry in the
+        dictionaries.
+    - name: entries_ndx
+      description: Access and update the XPaths that are used when limiting the data returned
+        on an entries GET using the ndx parameter.
+    - name: users
+      description: "Manipulate the users and user rights for a dictionary. Can also be\
+        \ used by global admin users to manipulate users for any table when used with\
+        \ \"dict_users\".\r\nDefinitions:\r\n<ul>\r\n<li>A standard user is a user that\
+        \ is authorized to read and write her own entries in a dictionary.</li>\r\n<li>An\
+        \ admin user is a user that is authorized to read and write any entry in a partictular\
+        \ dictionary (writeown = 'n')</li>\r\n<li>A global admin user is a user that is\
+        \ authorized to read and write any entry in \"dict_users\". Global admin users\
+        \ are authorized to manipulate users for any dictionary also through a url referriung\
+        \ to that dictionary.</li>\r\n</ul>. See users.xqm"
   paths:
     /dicts/{dict_name}/entries/{entries_id}/changes:
       get:
@@ -1115,6 +1127,11 @@ contents: >
             description: Unsupported Media Type
             content: {}
   components:
+    securitySchemes:
+      httpBasicWithSHA256Pws:
+        scheme: basic
+        type: http
+        description: This service uses HTTP Basic authentication. To somewhat protect the Passwords their SHA256 hash is created when set by VLE. There may be unhashed passwords on the server for test purpose.
     schemas:
       dicts:
         required:
