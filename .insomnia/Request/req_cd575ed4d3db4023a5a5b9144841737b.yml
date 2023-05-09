@@ -1,0 +1,24 @@
+_id: req_cd575ed4d3db4023a5a5b9144841737b
+type: Request
+parentId: fld_53fbd6d4e99a44198ff454a052f9d8ff
+modified: 1683636090526
+created: 1683636090526
+url: "{{ _.base_url }}/dicts"
+name: /dicts
+description: ""
+method: POST
+body: {}
+parameters: []
+headers: []
+authentication:
+  type: basic
+  username: "{{ _.httpUsername }}"
+  password: "{{ _.httpPassword }}"
+metaSortKey: -1683636090526
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

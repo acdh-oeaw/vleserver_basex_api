@@ -1,0 +1,25 @@
+_id: req_8d0f3275039f48d4ae42a45159b94c8e
+type: Request
+parentId: fld_bd5a6820c2134f5c82e1dae3428df7ba
+modified: 1683636090548
+created: 1683636090548
+url: "{{ _.base_url }}/dicts/{{ _.dict_name }}/entries/{{ _.entries_id
+  }}/entries_ndx"
+name: /dicts/{dict_name}/entries/{entries_id}/entries_ndx
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication:
+  type: basic
+  username: "{{ _.httpUsername }}"
+  password: "{{ _.httpPassword }}"
+metaSortKey: -1683636090548
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,7 +1,7 @@
 _id: spc_595e0640e91147229c6cd8bc9afe86fe
 type: ApiSpec
 parentId: wrk_52ee7131a91b4bd3b92d81960c20c046
-modified: 1683634248743
+modified: 1683635875781
 created: 1683622804850
 fileName: openapi.yaml
 contents: >-
@@ -308,7 +308,7 @@ contents: >-
         description: "Delete that dictionary.\r\nOnly global admins can do this. All\
           \ others get 403 \"Not allowed\""
         parameters:
-        - name: dicts_name
+        - name: dict_name
           in: path
           description: URL parameter dicts_name
           required: true
@@ -691,6 +691,85 @@ contents: >-
           required: true
           schema:
             type: string
+        - schema:
+            x-xml-type: xs:integer
+            type: string
+          in: query
+          example: '1'
+          name: page
+          description: The page page to return based on the given pageSize
+          required: false
+        - schema:
+            x-xml-type: xs:integer
+            type: string
+          in: query
+          example: '10'
+          name: pageSize
+          description: Number of entries to return per request
+          required: false
+        - schema:
+            nullable: true
+            x-xml-type: xs:string
+            type: string
+          in: query
+          name: id
+          description: Filter by ids starting with this string
+          required: false
+        - schema:
+            nullable: true
+            x-xml-type: xs:string
+            type: string
+          in: query
+          name: ids
+          description: Return entries matching exactly the ids provided as a comma separated list
+          required: false
+        - schema:
+            nullable: true
+            x-xml-type: xs:string
+            type: string
+          in: query
+          name: q
+          description: "A name of a query template stored in the profile (everyone) or\r\nan XPath or XQuery to exeute as filter (only admins for this dict)"
+          required: false
+        - schema:
+            nullable: true
+            x-xml-type: xs:string
+            type: string
+          in: query
+          name: sort
+          description: "One of \"asc\", \"desc\" or \"none\" (everyone) or\r\nan XPath or XQuery to execute for sorting the filtered results (only admins for this dict)"
+          required: false
+        - schema:
+            nullable: true
+            x-xml-type: xs:string
+            type: string
+          in: query
+          name: altLemma
+          description: A name of an alternative lemma definition to use (specified in profile)
+          required: false
+        - schema:
+            nullable: true
+            x-xml-type: xs:string
+            type: string
+          in: query
+          name: lock
+          description: "true or an amount of time in seconds the selected entries should be locked for editing\r\nOnly authenticated users."
+          required: false
+        - schema:
+            x-xml-type: xs:string
+            type: string
+          in: header
+          name: Authorization
+          description: Used to determine if user is allowed to use any XQuery or XPath for q and sort
+          required: false
+        - schema:
+            nullable: true
+            x-xml-type: xs:string
+            type: string
+          in: header
+          name: Accept
+          description: Used to determine if the user was authenticated or is anonymous.
+          required: false
         responses:
           "200":
             description: OK

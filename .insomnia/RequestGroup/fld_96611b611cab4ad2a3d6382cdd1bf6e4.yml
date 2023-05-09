@@ -1,0 +1,28 @@
+_id: fld_96611b611cab4ad2a3d6382cdd1bf6e4
+type: RequestGroup
+parentId: wrk_52ee7131a91b4bd3b92d81960c20c046
+modified: 1683636090488
+created: 1683636090488
+name: users
+description: "Manipulate the users and user rights for a dictionary. Can also be
+  used by global admin users to manipulate users for any table when used with
+  \"dict_users\".\r
+
+  Definitions:\r
+
+  <ul>\r
+
+  <li>A standard user is a user that is authorized to read and write her own
+  entries in a dictionary.</li>\r
+
+  <li>An admin user is a user that is authorized to read and write any entry
+  in a partictular dictionary (writeown = 'n')</li>\r
+
+  <li>A global admin user is a user that is authorized to read and write any
+  entry in \"dict_users\". Global admin users are authorized to manipulate users
+  for any dictionary also through a url referriung to that dictionary.</li>\r
+
+  </ul>. See users.xqm"
+environment: {}
+environmentPropertyOrder: null
+metaSortKey: -1683636090488

@@ -1,0 +1,25 @@
+_id: req_81459111c4f742dbafbd852e16bd9c29
+type: Request
+parentId: fld_f1d4fcfbdf5945dbb779fac1826835ca
+modified: 1683636090501
+created: 1683636090501
+url: "{{ _.base_url }}/dicts/{{ _.dict_name }}/entries/{{ _.entries_id
+  }}/changes/{{ _.changes_timestamp }}"
+name: /dicts/{dict_name}/entries/{entries_id}/changes/{changes_timestamp}
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication:
+  type: basic
+  username: "{{ _.httpUsername }}"
+  password: "{{ _.httpPassword }}"
+metaSortKey: -1683636090501
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

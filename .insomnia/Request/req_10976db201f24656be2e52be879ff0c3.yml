@@ -1,0 +1,65 @@
+_id: req_10976db201f24656be2e52be879ff0c3
+type: Request
+parentId: fld_4f98a8ce95684d11a2ce5fcd3a8362eb
+modified: 1683636181142
+created: 1683636090601
+url: "{{ _.base_url }}/dicts/{{ _.dict_name }}/entries"
+name: /dicts/{dict_name}/entries
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: page
+    disabled: true
+    value: string
+    id: pair_ac64b82c3fe645159bfa21ce107999d9
+  - name: pageSize
+    disabled: true
+    value: string
+    id: pair_040c393f7f7343d6a8f9e14a8dcf4d18
+  - name: id
+    disabled: false
+    value: "{{ _.entries_id }}"
+    id: pair_34c574c2e7374420882b4f7a1227cb2f
+  - name: ids
+    disabled: true
+    value: string
+    id: pair_17e0550b78aa4a46877716eb05724d72
+  - name: q
+    disabled: true
+    value: string
+    id: pair_d937684b89df4e0982e5aeac14d6fcaa
+  - name: sort
+    disabled: true
+    value: string
+    id: pair_f9ba44e6168842dd825e09411ef24512
+  - name: altLemma
+    disabled: true
+    value: string
+    id: pair_13b4683b603d4455a0b0d8016f36fa1b
+  - name: lock
+    disabled: false
+    value: "true"
+    id: pair_e3efedde77b14b4b9596458e753bedf4
+headers:
+  - name: Authorization
+    disabled: true
+    value: string
+    id: pair_1c881a243ed14e039e32a415d328d783
+  - name: Accept
+    disabled: false
+    value: application/json
+    id: pair_526a155f01ec46babb491d2a65dc131e
+authentication:
+  type: basic
+  username: "{{ _.httpUsername }}"
+  password: "{{ _.httpPassword }}"
+  disabled: true
+metaSortKey: -1683636090601
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

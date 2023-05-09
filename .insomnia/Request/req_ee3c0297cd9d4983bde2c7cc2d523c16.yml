@@ -1,0 +1,30 @@
+_id: req_ee3c0297cd9d4983bde2c7cc2d523c16
+type: Request
+parentId: fld_a5b53a930b954cba9b1f8baf6689312a
+modified: 1683636090518
+created: 1683636090518
+url: "{{ _.base_url }}/dicts"
+name: A list of all dictionaries available on this server.
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: page
+    disabled: true
+    value: string
+  - name: pageSize
+    disabled: true
+    value: string
+headers: []
+authentication:
+  type: basic
+  username: "{{ _.httpUsername }}"
+  password: "{{ _.httpPassword }}"
+metaSortKey: -1683636090518
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
