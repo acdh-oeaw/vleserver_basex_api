@@ -1,26 +1,27 @@
-_id: req_ee3c0297cd9d4983bde2c7cc2d523c16
+_id: req_3bcc703b1d8f4d21917297bccc9ad8ba
 type: Request
-parentId: fld_a5b53a930b954cba9b1f8baf6689312a
-modified: 1683636090518
-created: 1683636090518
-url: "{{ _.base_url }}/dicts"
-name: A list of all dictionaries available on this server.
+parentId: fld_e05545a8ca354ad9bc49b73d7c0649f9
+modified: 1683637887656
+created: 1683637887656
+url: "{{ _.base_url }}/restvle/dicts/dict_users/users"
+name: Create a user.
 description: ""
-method: GET
-body: {}
-parameters:
-  - name: page
+method: POST
+body:
+  mimeType: application/xml
+parameters: []
+headers:
+  - name: Content-Type
     disabled: true
     value: string
-  - name: pageSize
+  - name: Accept
     disabled: true
     value: string
-headers: []
 authentication:
   type: basic
   username: "{{ _.httpUsername }}"
   password: "{{ _.httpPassword }}"
-metaSortKey: -1683636090518
+metaSortKey: -1683637887656
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

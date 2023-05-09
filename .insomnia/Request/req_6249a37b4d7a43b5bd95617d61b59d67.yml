@@ -1,20 +1,23 @@
-_id: req_7e0b75ed72404ec3a89ac782f7054171
+_id: req_6249a37b4d7a43b5bd95617d61b59d67
 type: Request
-parentId: fld_96611b611cab4ad2a3d6382cdd1bf6e4
-modified: 1683636090676
-created: 1683636090676
-url: "{{ _.base_url }}/dicts/{{ _.dict_name }}/users/{{ _.users_id }}"
-name: /dicts/{dict_name}/users/{users_id}
+parentId: fld_e05545a8ca354ad9bc49b73d7c0649f9
+modified: 1683637887681
+created: 1683637887681
+url: "{{ _.base_url }}/restvle/dicts/dict_users/users/{{ _.userName_or_id }}"
+name: Get user data.
 description: ""
-method: POST
+method: GET
 body: {}
 parameters: []
-headers: []
+headers:
+  - name: Accept
+    disabled: true
+    value: string
 authentication:
   type: basic
   username: "{{ _.httpUsername }}"
   password: "{{ _.httpPassword }}"
-metaSortKey: -1683636090676
+metaSortKey: -1683637887681
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

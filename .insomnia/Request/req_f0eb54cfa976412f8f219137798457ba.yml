@@ -1,10 +1,10 @@
-_id: req_90b185197f584844947e4cc1f5a3b3b9
+_id: req_f0eb54cfa976412f8f219137798457ba
 type: Request
-parentId: fld_4f98a8ce95684d11a2ce5fcd3a8362eb
-modified: 1683636090638
-created: 1683636090638
-url: "{{ _.base_url }}/dicts/{{ _.dict_name }}/entries/{{ _.entries_id }}"
-name: /dicts/{dict_name}/entries/{entries_id}
+parentId: fld_e05545a8ca354ad9bc49b73d7c0649f9
+modified: 1683637887673
+created: 1683637887673
+url: "{{ _.base_url }}/restvle/dicts/dict_users/users/{{ _.userName_or_id }}"
+name: Remove a user.
 description: ""
 method: DELETE
 body: {}
@@ -14,7 +14,7 @@ authentication:
   type: basic
   username: "{{ _.httpUsername }}"
   password: "{{ _.httpPassword }}"
-metaSortKey: -1683636090638
+metaSortKey: -1683637887673
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

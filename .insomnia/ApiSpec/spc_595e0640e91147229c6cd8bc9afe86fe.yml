@@ -1,7 +1,7 @@
 _id: spc_595e0640e91147229c6cd8bc9afe86fe
 type: ApiSpec
 parentId: wrk_52ee7131a91b4bd3b92d81960c20c046
-modified: 1683635875781
+modified: 1683637882242
 created: 1683622804850
 fileName: openapi.yaml
 contents: >-
@@ -44,9 +44,6 @@ contents: >-
     - name: changes
       description: Access to the change log entries stored for a particular entry in the
         dictionaries.
-    - name: entries_ndx
-      description: Access and update the XPaths that are used when limiting the data returned
-        on an entries GET using the ndx parameter.
     - name: users
       description: "Manipulate the users and user rights for a dictionary. Can also be\
         \ used by global admin users to manipulate users for any table when used with\
@@ -311,339 +308,6 @@ contents: >-
         - name: dict_name
           in: path
           description: URL parameter dicts_name
-          required: true
-          schema:
-            maximum: 1
-            minimum: 0
-            type: string
-        responses:
-          "204":
-            description: No Content
-            content: {}
-          "401":
-            description: Unauthorized
-            content: {}
-          "403":
-            description: Forbidden
-            content: {}
-          "404":
-            description: Not Found
-            content: {}
-          "406":
-            description: Not Acceptable
-            content: {}
-          "415":
-            description: Unsupported Media Type
-            content: {}
-    /dicts/{dict_name}/entries/{entries_id}/entries_ndx:
-      get:
-        operationId: getEntryIndexes
-        tags:
-        - entries_ndx
-        description: Get all the xpath => txt data for the entry specified in the path.
-        parameters:
-        - name: dict_name
-          in: path
-          description: Name of an existing dictionary. dict_users does not have that
-            auxilliary data
-          required: true
-          schema:
-            type: string
-        - name: entries_id
-          in: path
-          description: ID referencing a particular entry
-          required: true
-          schema:
-            type: string
-        responses:
-          "200":
-            description: OK
-            content: {}
-          "401":
-            description: Unauthorized
-            content: {}
-          "403":
-            description: Forbidden
-            content: {}
-          "406":
-            description: Not Acceptable
-            content: {}
-          "415":
-            description: Unsupported Media Type
-            content: {}
-      delete:
-        operationId: deleteEntryIndex
-        tags:
-        - entries_ndx
-        description: Delete all xpath => text entries for the entry_id specified in
-          the path.
-        parameters:
-        - name: dict_name
-          in: path
-          description: Name of an existing dictionary. dict_users does not have that
-            auxilliary data
-          required: true
-          schema:
-            type: string
-        - name: entries_id
-          in: path
-          description: ID referencing a particular entry
-          required: true
-          schema:
-            type: string
-        responses:
-          "204":
-            description: No Content
-            content: {}
-          "401":
-            description: Unauthorized
-            content: {}
-          "403":
-            description: Forbidden
-            content: {}
-          "406":
-            description: Not Acceptable
-            content: {}
-          "415":
-            description: Unsupported Media Type
-            content: {}
-      patch:
-        operationId: patchEntryIndex
-        tags:
-        - entries_ndx
-        description: Create or change all xpath => text entries for the entry_id specified
-          in the path. With the special path entries/0/entries_ndx bulk changes and
-          inserts can be achieved.
-        parameters:
-        - name: dict_name
-          in: path
-          description: Name of an existing dictionary. dict_users does not have that
-            auxilliary data
-          required: true
-          schema:
-            type: string
-        - name: entries_id
-          in: path
-          description: ID referencing a particular entry
-          required: true
-          schema:
-            type: string
-        requestBody:
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/entries_ndx'
-          required: true
-        responses:
-          "200":
-            description: OK
-            content: {}
-          "400":
-            description: Client Error
-            content: {}
-          "401":
-            description: Unauthorized
-            content: {}
-          "403":
-            description: Forbidden
-            content: {}
-          "406":
-            description: Not Acceptable
-            content: {}
-          "415":
-            description: Unsupported Media Type
-            content: {}
-          "422":
-            description: Unprocessable Entity
-            content: {}
-        x-codegen-request-body-name: body
-    /dicts/{dict_name}/entries/{entries_id}/entries_ndx/{entries_ndx_id}:
-      get:
-        operationId: getEntryIndexByIndexId
-        tags:
-        - entries_ndx
-        description: Not implemneted yet.
-        parameters:
-        - name: dict_name
-          in: path
-          description: Name of an existing dictionary. dict_users does not have that
-            auxilliary data
-          required: true
-          schema:
-            type: string
-        - name: entries_id
-          in: path
-          description: ID referencing a particular entry
-          required: true
-          schema:
-            type: string
-        - name: entries_ndx_id
-          in: path
-          description: URL parameter entries_ndx_id
-          required: true
-          schema:
-            maximum: 1
-            minimum: 0
-            type: string
-        responses:
-          "200":
-            description: OK
-            content: {}
-          "401":
-            description: Unauthorized
-            content: {}
-          "403":
-            description: Forbidden
-            content: {}
-          "404":
-            description: Not Found
-            content: {}
-          "406":
-            description: Not Acceptable
-            content: {}
-          "415":
-            description: Unsupported Media Type
-            content: {}
-      put:
-        operationId: putEntryIndexByIndexId
-        tags:
-        - entries_ndx
-        description: Not implemneted yet.
-        parameters:
-        - name: dict_name
-          in: path
-          description: Name of an existing dictionary. dict_users does not have that
-            auxilliary data
-          required: true
-          schema:
-            type: string
-        - name: entries_id
-          in: path
-          description: ID referencing a particular entry
-          required: true
-          schema:
-            type: string
-        - name: entries_ndx_id
-          in: path
-          description: URL parameter entries_ndx_id
-          required: true
-          schema:
-            maximum: 1
-            minimum: 0
-            type: string
-        requestBody:
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/entries_ndx'
-          required: true
-        responses:
-          "200":
-            description: OK
-            content: {}
-          "400":
-            description: Client Error
-            content: {}
-          "401":
-            description: Unauthorized
-            content: {}
-          "403":
-            description: Forbidden
-            content: {}
-          "404":
-            description: Not Found
-            content: {}
-          "406":
-            description: Not Acceptable
-            content: {}
-          "415":
-            description: Unsupported Media Type
-            content: {}
-          "422":
-            description: Unprocessable Entity
-            content: {}
-        x-codegen-request-body-name: body
-      post:
-        operationId: postEntryIndexByIndexId
-        tags:
-        - entries_ndx
-        description: Not implemneted yet.
-        parameters:
-        - name: dict_name
-          in: path
-          description: Name of an existing dictionary. dict_users does not have that
-            auxilliary data
-          required: true
-          schema:
-            type: string
-        - name: entries_id
-          in: path
-          description: ID referencing a particular entry
-          required: true
-          schema:
-            type: string
-        - name: entries_ndx_id
-          in: path
-          description: URL parameter entries_ndx_id
-          required: true
-          schema:
-            maximum: 1
-            minimum: 0
-            type: string
-        requestBody:
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/entries_ndx'
-          required: true
-        responses:
-          "201":
-            description: Created
-            content: {}
-          "400":
-            description: Client Error
-            content: {}
-          "401":
-            description: Unauthorized
-            content: {}
-          "403":
-            description: Forbidden
-            content: {}
-          "404":
-            description: Not Found
-            content: {}
-          "406":
-            description: Not Acceptable
-            content: {}
-          "415":
-            description: Unsupported Media Type
-            content: {}
-          "422":
-            description: Unprocessable Entity
-            content: {}
-        x-codegen-request-body-name: body
-      delete:
-        operationId: deleteEntryIndexByIndexId
-        tags:
-        - entries_ndx
-        description: Not implemneted yet.
-        parameters:
-        - name: dict_name
-          in: path
-          description: Name of an existing dictionary. dict_users does not have that
-            auxilliary data
-          required: true
-          schema:
-            type: string
-        - name: entries_id
-          in: path
-          description: ID referencing a particular entry
-          required: true
-          schema:
-            type: string
-        - name: entries_ndx_id
-          in: path
-          description: URL parameter entries_ndx_id
           required: true
           schema:
             maximum: 1
@@ -1060,213 +724,174 @@ contents: >-
             description: Unprocessable Entity
             content: {}
         x-codegen-request-body-name: body
-    /dicts/{dict_name}/users:
-      get:
-        operationId: getUser
-        tags:
-        - users
-        description: "<ul>\r\n<li>For standard users: Get ones rights. The list is filtered\
-          \ to only contain the user that was provided as username during authentication.</li>\r\
-          \n<li>For admin users: Get a list of all users and their rights for the table\
-          \ given by the url. This also means that global admin users which are authorized\
-          \ to see and manitpulate \"dict_users\" can see all users when querying \"\
-          dict_user\".</li>\r\n</ul>\r\nNote that the password is write only thus it\
-          \ is never shown in any response."
-        parameters:
-        - name: dict_name
-          in: path
-          description: Name of an existing dictionary or dict_users.
-          required: true
-          schema:
-            type: string
-        responses:
-          "200":
-            description: OK
-            content: {}
-          "401":
-            description: Unauthorized
-            content: {}
-          "403":
-            description: Forbidden
-            content: {}
-          "406":
-            description: Not Acceptable
-            content: {}
-          "415":
-            description: Unsupported Media Type
-            content: {}
+    /restvle/dicts/dict_users/users:
       post:
-        operationId: postUser
-        tags:
-        - users
-        description: Create a new user for that table. Admin users only. With the special
-          dictionary "dict_users" users can be created for any table by global admins.
+        operationId: postDictUsersUser
+        summary: Create a user.
+        description: Create a user.
         parameters:
-        - name: dict_name
-          in: path
-          description: Name of an existing dictionary or dict_users.
-          required: true
-          schema:
-            type: string
+          - schema:
+              x-xml-type: xs:string
+              type: string
+            in: header
+            name: Content-Type
+            required: false
+          - schema:
+              x-xml-type: xs:string
+              type: string
+            in: header
+            name: Accept
+            required: false
         requestBody:
           content:
-            '*/*':
+            application/xml:
               schema:
-                $ref: '#/components/schemas/users'
+                nullable: true
+                x-xml-type: item()
+                type: string
+              example: |-
+                {
+                  "id": "The internal ID. When creating a new user this will be filled in automatically.",
+                  "userID": "The user id or username.",
+                  "pw": "The password for that user and that table.",
+                  "read": "Whether the user has read access.",
+                  "write": "Whether the user has write access.",
+                  "writeown": "Whether the user may change entries that dont belong to her.",
+                  "table": "A table name. Will only be returned on administrative queries on the special dict_users storage."
+                }
+          description: ' Processed as variable: $userData'
           required: true
         responses:
-          "201":
-            description: Created
-            content: {}
-          "400":
-            description: Client Error
-            content: {}
-          "401":
-            description: Unauthorized
-            content: {}
-          "403":
-            description: Forbidden
-            content: {}
-          "406":
-            description: Not Acceptable
-            content: {}
-          "415":
-            description: Unsupported Media Type
-            content: {}
-          "422":
-            description: Unprocessable Entity
-            content: {}
-        x-codegen-request-body-name: body
-    /dicts/{dict_name}/users/{users_id}:
+          '200':
+            content:
+              application/vnd.wde.v2+json:
+                schema:
+                  nullable: true
+                  x-xml-type: item()
+                  type: string
+              application/problem+xml:
+                schema:
+                  nullable: true
+                  x-xml-type: item()
+                  type: string
+              application/problem+json:
+                schema:
+                  nullable: true
+                  x-xml-type: item()
+                  type: string
+            description: ''
+        tags:
+          - users
       get:
-        operationId: getUserById
-        tags:
-        - users
-        description: "Get a user's rights for that table. Non admin users can only query\
-          \ their rights using der user ID.<br/>\r\nNote: The password is not sent over\
-          \ the wire."
+        operationId: getDictUsersUser
+        summary: List users.
+        description: List users.
         parameters:
-        - name: dict_name
-          in: path
-          description: Name of an existing dictionary or dict_users.
-          required: true
-          schema:
-            type: string
-        - name: users_id
-          in: path
-          description: URL parameter users_id
-          required: true
-          schema:
-            maximum: 1
-            minimum: 0
-            type: string
+          - schema:
+              x-xml-type: xs:integer
+              type: string
+            in: query
+            name: page
+            required: false
+          - schema:
+              x-xml-type: xs:integer
+              type: string
+            in: query
+            name: pageSize
+            required: false
         responses:
-          "200":
-            description: OK
-            content: {}
-          "401":
-            description: Unauthorized
-            content: {}
-          "403":
-            description: Forbidden
-            content: {}
-          "404":
-            description: Not Found
-            content: {}
-          "406":
-            description: Not Acceptable
-            content: {}
-          "415":
-            description: Unsupported Media Type
-            content: {}
-      post:
-        operationId: postUserById
+          '200':
+            content:
+              application/vnd.wde.v2+json:
+                schema:
+                  nullable: true
+                  x-xml-type: item()
+                  type: string
+              application/json:
+                schema:
+                  nullable: true
+                  x-xml-type: item()
+                  type: string
+              application/problem+xml:
+                schema:
+                  nullable: true
+                  x-xml-type: item()
+                  type: string
+              application/problem+json:
+                schema:
+                  nullable: true
+                  x-xml-type: item()
+                  type: string
+              application/hal+json:
+                schema:
+                  nullable: true
+                  x-xml-type: item()
+                  type: string
+            description: ''
         tags:
-        - users
-        description: "<ul>\r\n<li>For a standard user: Change the password. Any other\
-          \ fields are read-only, a 403 error is returned if an attempt is made to manipulate\
-          \ them.</li>\r\n<li>For an admin user: Change the access rights and the password\
-          \ of some user. TODO: check setting rights without changing pw</li>\r\n</ul>"
-        parameters:
-        - name: dict_name
-          in: path
-          description: Name of an existing dictionary or dict_users.
-          required: true
-          schema:
+          - users
+    /restvle/dicts/dict_users/users/{userName_or_id}:
+      parameters:
+        - schema:
+            x-xml-type: xs:string
             type: string
-        - name: users_id
           in: path
-          description: URL parameter users_id
+          name: userName_or_id
           required: true
-          schema:
-            maximum: 1
-            minimum: 0
-            type: string
-        requestBody:
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/users'
-          required: true
-        responses:
-          "201":
-            description: Created
-            content: {}
-          "400":
-            description: Client Error
-            content: {}
-          "404":
-            description: Not Found
-            content: {}
-          "406":
-            description: Not Acceptable
-            content: {}
-          "415":
-            description: Unsupported Media Type
-            content: {}
-          "422":
-            description: Unprocessable Entity
-            content: {}
-        x-codegen-request-body-name: body
       delete:
-        operationId: deleteUserById
-        tags:
-        - users
-        description: Delete a user for that table. Admin users only.
-        parameters:
-        - name: dict_name
-          in: path
-          description: Name of an existing dictionary or dict_users.
-          required: true
-          schema:
-            type: string
-        - name: users_id
-          in: path
-          description: URL parameter users_id
-          required: true
-          schema:
-            maximum: 1
-            minimum: 0
-            type: string
+        operationId: deleteDictUsersUserByUserNameOrId
+        summary: Remove a user.
+        description: Remove a user.
+        parameters: []
         responses:
-          "204":
-            description: No Content
-            content: {}
-          "401":
-            description: Unauthorized
-            content: {}
-          "403":
-            description: Forbidden
-            content: {}
-          "404":
-            description: Not Found
-            content: {}
-          "406":
-            description: Not Acceptable
-            content: {}
-          "415":
-            description: Unsupported Media Type
-            content: {}
+          '200':
+            content:
+              application/xml:
+                schema:
+                  nullable: true
+                  x-xml-type: item()
+                  type: string
+            description: ''
+        tags:
+          - users
+      get:
+        operationId: getDictUsersUserByUserNameOrId
+        summary: Get user data.
+        description: Get user data for a particular user for a dictionary
+        parameters:
+          - schema:
+              x-xml-type: xs:string
+              type: string
+            in: header
+            name: Accept
+            required: false
+        responses:
+          '200':
+            content:
+              application/vnd.wde.v2+json:
+                schema:
+                  $ref: "#/components/schemas/users"
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/users"
+              application/problem+xml:
+                schema:
+                  nullable: true
+                  x-xml-type: item()
+                  type: string
+              application/problem+json:
+                schema:
+                  nullable: true
+                  x-xml-type: item()
+                  type: string
+              application/hal+json:
+                schema:
+                  nullable: true
+                  x-xml-type: item()
+                  type: string
+            description: ''
+        tags:
+          - users
   components:
     securitySchemes:
       httpBasicWithSHA256Pws:
@@ -1284,27 +909,6 @@ contents: >-
             description: Name of the dictionary.
         example:
           name: Name of the dictionary.
-      entries_ndx:
-        required:
-        - id
-        - txt
-        - xpath
-        type: object
-        properties:
-          id:
-            type: string
-            description: The id of the entry this XPath belongs to
-          xpath:
-            type: string
-            description: An XPath (although with - as the separator) within an entry.
-          txt:
-            type: string
-            description: The text that will be returned if this XPath is selected using
-              an XML tool.
-          weight:
-            type: string
-            description: Some integer value by wihch an important occurence of a word
-              can be destinguished from a less important one.
       entries:
         required:
         - entry

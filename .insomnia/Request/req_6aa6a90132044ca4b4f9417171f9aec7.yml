@@ -1,12 +1,12 @@
-_id: req_e8e1d2efdc6e4bda9503fb369231a595
+_id: req_6aa6a90132044ca4b4f9417171f9aec7
 type: Request
-parentId: fld_53fbd6d4e99a44198ff454a052f9d8ff
-modified: 1683636090534
-created: 1683636090534
-url: "{{ _.base_url }}/dicts/{{ _.dict_name }}"
-name: /dicts/{dict_name}
+parentId: fld_0842c8f8f8844844b29ba4bdfcca3997
+modified: 1683637887613
+created: 1683637887613
+url: "{{ _.base_url }}/dicts/{{ _.dict_name }}/entries"
+name: /dicts/{dict_name}/entries
 description: ""
-method: GET
+method: POST
 body: {}
 parameters: []
 headers: []
@@ -14,7 +14,7 @@ authentication:
   type: basic
   username: "{{ _.httpUsername }}"
   password: "{{ _.httpPassword }}"
-metaSortKey: -1683636090534
+metaSortKey: -1683637887613
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

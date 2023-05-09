@@ -1,10 +1,10 @@
-_id: req_63c92743685e403698364ec9034e5d20
+_id: req_0202d69e18be4d188dfe3da5f13967a4
 type: Request
-parentId: fld_4f98a8ce95684d11a2ce5fcd3a8362eb
-modified: 1683636090608
-created: 1683636090608
-url: "{{ _.base_url }}/dicts/{{ _.dict_name }}/entries"
-name: /dicts/{dict_name}/entries
+parentId: fld_bb6579345e5748a9a304b63d06fb5362
+modified: 1683637887585
+created: 1683637887585
+url: "{{ _.base_url }}/dicts"
+name: /dicts
 description: ""
 method: POST
 body: {}
@@ -14,7 +14,7 @@ authentication:
   type: basic
   username: "{{ _.httpUsername }}"
   password: "{{ _.httpPassword }}"
-metaSortKey: -1683636090608
+metaSortKey: -1683637887585
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
