@@ -1,10 +1,10 @@
 _id: req_20155ddfbf69428098d0162ce33a6f71
 type: Request
 parentId: fld_54458fa2a35a4232bc87b23d3441d8d1
-modified: 1683627716959
+modified: 1683634350395
 created: 1683627628333
-url: "{{ _.base_url }}/dicts/{{ _.dicts_name }}"
-name: /dicts/{dicts_name}
+url: "{{ _.base_url }}/dicts/{{ _.dict_name }}"
+name: /dicts/{dict_name}
 description: ""
 method: GET
 body: {}
