@@ -1,7 +1,7 @@
 _id: spc_595e0640e91147229c6cd8bc9afe86fe
 type: ApiSpec
 parentId: wrk_52ee7131a91b4bd3b92d81960c20c046
-modified: 1683637882242
+modified: 1683638115219
 created: 1683622804850
 fileName: openapi.yaml
 contents: >-
@@ -724,7 +724,7 @@ contents: >-
             description: Unprocessable Entity
             content: {}
         x-codegen-request-body-name: body
-    /restvle/dicts/dict_users/users:
+    /dicts/dict_users/users:
       post:
         operationId: postDictUsersUser
         summary: Create a user.
@@ -830,7 +830,7 @@ contents: >-
             description: ''
         tags:
           - users
-    /restvle/dicts/dict_users/users/{userName_or_id}:
+    /dicts/dict_users/users/{userName_or_id}:
       parameters:
         - schema:
             x-xml-type: xs:string
