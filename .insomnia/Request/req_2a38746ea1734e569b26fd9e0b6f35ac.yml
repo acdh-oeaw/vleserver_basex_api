@@ -1,0 +1,24 @@
+_id: req_2a38746ea1734e569b26fd9e0b6f35ac
+type: Request
+parentId: fld_403ce8ae2d8c47eebfa23653ea4f1025
+modified: 1683627628444
+created: 1683627628444
+url: "{{ _.base_url }}/dicts/{{ _.dict_name }}/entries/{{ _.entries_id }}"
+name: /dicts/{dict_name}/entries/{entries_id}
+description: ""
+method: PATCH
+body: {}
+parameters: []
+headers: []
+authentication:
+  type: basic
+  username: "{{ _.httpUsername }}"
+  password: "{{ _.httpPassword }}"
+metaSortKey: -1683627628444
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

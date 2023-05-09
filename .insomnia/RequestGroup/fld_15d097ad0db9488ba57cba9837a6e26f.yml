@@ -1,0 +1,11 @@
+_id: fld_15d097ad0db9488ba57cba9837a6e26f
+type: RequestGroup
+parentId: wrk_52ee7131a91b4bd3b92d81960c20c046
+modified: 1683627628266
+created: 1683627628266
+name: changes
+description: Access to the change log entries stored for a particular entry in
+  the dictionaries.
+environment: {}
+environmentPropertyOrder: null
+metaSortKey: -1683627628266

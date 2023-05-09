@@ -1,7 +1,7 @@
 _id: spc_595e0640e91147229c6cd8bc9afe86fe
 type: ApiSpec
 parentId: wrk_52ee7131a91b4bd3b92d81960c20c046
-modified: 1683626426300
+modified: 1683627534001
 created: 1683622804850
 fileName: openapi.yaml
 contents: >-
@@ -125,8 +125,26 @@ contents: >-
             type: string
         responses:
           "200":
-            description: OK
-            content: {}
+            description: |-
+              A JSON HAL based list of documents. If pageSize is 10 or less the
+                      individual entries are included.
+            content: 
+              application/json:
+                schema:
+                  x-xml-type: item()
+                  type: string
+              application/problem+xml:
+                schema:
+                  x-xml-type: item()
+                  type: string
+              application/problem+json:
+                schema:
+                  x-xml-type: item()
+                  type: string
+              application/hal+json:
+                schema:
+                  x-xml-type: item()
+                  type: string
           "401":
             description: Unauthorized
             content: {}
@@ -145,13 +163,53 @@ contents: >-
     /dicts:
       get:
         operationId: getDicts
-        tags:
-        - dicts
-        description: Return all known dictionaries and the user rights storage "dict_users".
+        summary: A list of all dictionaries available on this server.
+        parameters:
+          - schema:
+              x-xml-type: xs:integer
+              type: string
+            in: query
+            name: page
+            description: The page page to return based on the given pageSize
+            required: false
+          - schema:
+              x-xml-type: xs:integer
+              type: string
+            in: query
+            name: pageSize
+            description: Number of entries to return per request
+            required: false
         responses:
-          "200":
-            description: OK
-            content: {}
+          '200':
+            content:
+              application/vnd.wde.v2+json:
+                schema:
+                  nullable: true
+                  x-xml-type: item()
+                  type: string
+              application/json:
+                schema:
+                  nullable: true
+                  x-xml-type: item()
+                  type: string
+              application/problem+xml:
+                schema:
+                  nullable: true
+                  x-xml-type: item()
+                  type: string
+              application/problem+json:
+                schema:
+                  nullable: true
+                  x-xml-type: item()
+                  type: string
+              application/hal+json:
+                schema:
+                  nullable: true
+                  x-xml-type: item()
+                  type: string
+            description: |-
+              A JSON HAL based list of dictionaries. If pageSize is 10 or less the
+                      individual entries are included.
           "401":
             description: Unauthorized
             content: {}
@@ -164,6 +222,10 @@ contents: >-
           "415":
             description: Unsupported Media Type
             content: {}
+        tags:
+          - dicts
+          - public
+        description: Please note that a client sending Accept application/vnd.wde.v2+json is required to provide credentials. Use application/json or application/hal+json for unrestricted read access.
       post:
         operationId: postDicts
         tags:

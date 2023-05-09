@@ -1,0 +1,29 @@
+_id: req_04b887c48aca4641b6a99f7de09839bf
+type: Request
+parentId: fld_403ce8ae2d8c47eebfa23653ea4f1025
+modified: 1683627871163
+created: 1683627628400
+url: "{{ _.base_url }}/dicts/{{ _.dict_name }}/entries"
+name: /dicts/{dict_name}/entries
+description: ""
+method: GET
+body: {}
+parameters:
+  - id: pair_d609ed5745864812aa3daf2048e8d53f
+    name: id
+    value: "{{ _.entries_id }}"
+    description: ""
+headers: []
+authentication:
+  type: basic
+  username: "{{ _.httpUsername }}"
+  password: "{{ _.httpPassword }}"
+  disabled: true
+metaSortKey: -1683627628400
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
