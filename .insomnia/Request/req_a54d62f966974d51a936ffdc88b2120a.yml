@@ -1,7 +1,7 @@
 _id: req_a54d62f966974d51a936ffdc88b2120a
 type: Request
 parentId: fld_75e700bc925c45539f066d9a17065423
-modified: 1683647256223
+modified: 1684852702801
 created: 1683647256223
 url: "{{ _.base_url }}/dicts/{{ _.dict_name }}/entries/{{ _.entries_id }}"
 name: /dicts/{dict_name}/entries/{entries_id}
@@ -10,9 +10,14 @@ method: GET
 body: {}
 parameters:
   - name: lock
-    disabled: true
-    value: string
-headers: []
+    disabled: false
+    value: "true"
+    id: pair_5c35c61890bc426dbc47449ff2f4e022
+headers:
+  - id: pair_32e8f5d44f5a4099a7954332b46d18ab
+    name: Accept
+    value: "{{ _.accept }}"
+    description: ""
 authentication:
   type: basic
   username: "{{ _.httpUsername }}"

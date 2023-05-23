@@ -1,7 +1,7 @@
 _id: env_be2c7052976d49ce960eb728b5e549f2
 type: Environment
 parentId: env_ce1cc6e9f591c171c0659729ee15730fc58123f6
-modified: 1683647684974
+modified: 1684762399889
 created: 1683647648447
 name: Zettelkasten
 data:
@@ -10,7 +10,7 @@ data:
   entries_id: s728_qdb-d1e88741
   accept: application/vnd.wde.v2+json
   httpUsername: osiam
-  httpPassword: ""
+  httpPassword: CD6736A1183608A9BC61E77E136CD9C420EF8FB6E80203F88F55A58FD8DCBB9D
 dataPropertyOrder:
   "&":
     - base_url

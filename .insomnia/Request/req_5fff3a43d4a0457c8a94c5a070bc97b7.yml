@@ -1,34 +1,31 @@
-_id: req_f11109b444244f55ae1d24426f4c9c89
+_id: req_5fff3a43d4a0457c8a94c5a070bc97b7
 type: Request
 parentId: fld_bb6ad27f1ecd4ad59059e57b560944ef
-modified: 1684337790302
-created: 1683647256178
-url: "{{ _.base_url }}/dicts"
-name: Create a new dictionary.
+modified: 1684849521589
+created: 1684849437882
+url: "{{ _.base_url }}/dicts/restore"
+name: Restore a dictionary from backups
 description: ""
 method: POST
 body:
   mimeType: application/json
   text: |-
     {
-      "name": "dict_users"
+    	"name": "{{ _.dict_name }}"
     }
 parameters: []
 headers:
-  - name: Content-Type
-    disabled: false
-    value: application/json
-    id: pair_cb6af5a4f6424f6ab5f77d9406cbe5a3
-  - name: Accept
-    disabled: false
+  - id: pair_63a4b5efba474bd19d44dc6818309d27
+    name: Accept
     value: application/vnd.wde.v2+json
-    id: pair_76ed71227a0c41698d12161f5278cd0e
+    description: ""
+  - name: Content-Type
+    value: application/json
 authentication:
   type: basic
   username: "{{ _.httpUsername }}"
   password: "{{ _.httpPassword }}"
-  disabled: true
-metaSortKey: -1683647256178
+metaSortKey: -1683647256189.5
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

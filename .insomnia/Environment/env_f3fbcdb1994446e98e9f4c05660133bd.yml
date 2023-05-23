@@ -1,21 +1,23 @@
 _id: env_f3fbcdb1994446e98e9f4c05660133bd
 type: Environment
 parentId: env_ce1cc6e9f591c171c0659729ee15730fc58123f6
-modified: 1683644826357
+modified: 1684849764829
 created: 1683625220214
 name: Local development server
 data:
   base_url: http://localhost:8984/restvle
   dict_name: _qdb-TEI-02
-  entries_id: s728_qdb-d1e88741
+  entries_id: l564_qdb-d1e236943
+  entries_id_s: s728_qdb-d1e88741
   accept: application/vnd.wde.v2+json
   httpUsername: admin
-  httpPassword: TestMeHard
+  httpPassword: 8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
 dataPropertyOrder:
   "&":
     - base_url
     - dict_name
     - entries_id
+    - entries_id_s
     - accept
     - httpUsername
     - httpPassword

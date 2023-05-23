@@ -1,7 +1,7 @@
 _id: req_de6d6d23a2194d268c67a45d8a3b9499
 type: Request
 parentId: fld_6b09e975cacf4e129a04bbb48025952e
-modified: 1683647256253
+modified: 1684337923954
 created: 1683647256253
 url: "{{ _.base_url }}/dicts/dict_users/users"
 name: Create a user.
@@ -9,28 +9,31 @@ description: ""
 method: POST
 body:
   mimeType: application/json
-  text: >-
+  text: |-
     {
-      "id": "The internal ID. When creating a new user this will be filled in automatically.",
-      "pw": "The password for that user and that table.",
-      "userID": "The username the user uses to log in",
-      "read": "Whether the user has read access.",
-      "write": "Whether the user has write access.",
-      "writeown": "Whether the user may change entries that don't belong to her.",
-      "table": "A table name. Will only be returned on administrative queries on the special dict_users storage."
+      "id": "",
+      "pw": "{{ _.httpPassword }}",
+      "userID": "{{ _.httpUsername }}",
+      "read": "y",
+      "write": "y",
+      "writeown": "n",
+      "table": "_qdb-TEI-02"
     }
 parameters: []
 headers:
   - name: Content-Type
-    disabled: true
-    value: string
+    disabled: false
+    value: application/json
+    id: pair_f72db66013cb41a3aac22547cd97139a
   - name: Accept
-    disabled: true
-    value: string
+    disabled: false
+    value: application/vnd.wde.v2+json
+    id: pair_25f8a3550c2f4425a26401340f81642b
 authentication:
   type: basic
   username: "{{ _.httpUsername }}"
   password: "{{ _.httpPassword }}"
+  disabled: false
 metaSortKey: -1683647256253
 isPrivate: false
 settingStoreCookies: true
